@@ -1,0 +1,1 @@
+python3 %~dp0upload_v5.py %*

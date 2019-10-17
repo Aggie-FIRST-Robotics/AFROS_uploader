@@ -1,0 +1,16 @@
+click>=6,<7
+pyserial
+cachetools
+requests
+tabulate
+jsonpickle
+semantic_version
+colorama
+pyzmq
+cobs
+scan-build==2.0.13
+rfc6266-parser
+sentry-sdk
+observable
+pypng
+python-dateutil
