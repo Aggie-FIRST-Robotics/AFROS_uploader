@@ -2,6 +2,7 @@
 
 import click
 from os import path
+import os
 
 import json
 from datetime import datetime
@@ -44,6 +45,11 @@ def upload_v5(config_file):
 	ini_file = open(ini_result + '.ini', 'rb')
 
 	build_path = path.dirname(path.realpath(config_file)) + '/' + json_data['artifact-path']
+	
+	if not path.exists(build_path):
+		click.echo("ERROR: " + build_path + " does not exist.")
+		return
+
 	build_file = open(build_path, 'rb')
 	
 	ports = find_v5_ports('system')
@@ -66,6 +72,8 @@ def upload_v5(config_file):
 
 	ini_file.close()
 	build_file.close()
+	
+	os.remove(ini_result + '.ini')
 
 def generate_ini(json_data: dict):
 
